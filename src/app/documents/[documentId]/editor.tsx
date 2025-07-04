@@ -4,6 +4,9 @@ import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
 import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
+import FontFamily from '@tiptap/extension-font-family'
+import TextStyle from '@tiptap/extension-text-style';
+import Underline from '@tiptap/extension-underline';
 import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
 import Image from '@tiptap/extension-image'
@@ -44,11 +47,14 @@ export const Editor = () => {
             }
         },
         extensions: [
+            StarterKit,
+            FontFamily,
+            TextStyle,
             Table,
             TableCell,
             TableHeader,
             TableRow,
-            StarterKit,
+            Underline,
             Image,
             ImageResize,
             TaskList,
