@@ -10,6 +10,8 @@ import Underline from '@tiptap/extension-underline';
 import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
 import Image from '@tiptap/extension-image'
+import { Color } from '@tiptap/extension-color'
+import Highlight from '@tiptap/extension-highlight'
 import ImageResize from 'tiptap-extension-resize-image'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
@@ -48,6 +50,10 @@ export const Editor = () => {
         },
         extensions: [
             StarterKit,
+            Color,
+            Highlight.configure({
+                multicolor: true,
+            }),
             FontFamily,
             TextStyle,
             Table,
