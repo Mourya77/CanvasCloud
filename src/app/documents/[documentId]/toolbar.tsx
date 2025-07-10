@@ -28,7 +28,8 @@ import {
     SearchIcon,
     ListIcon,
     ListOrderedIcon,
-    MinusIcon
+    MinusIcon,
+    PlusIcon
 } from "lucide-react";
 import { type ColorResult, SketchPicker } from "react-color";
 import { type Level } from "@tiptap/extension-heading";
@@ -108,12 +109,31 @@ const FontSizeButton = () => {
                 <MinusIcon className="size-4" />
             </button>
             {isEditing ? (
-                <input />
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    onBlur={handleInputBlur}
+                    onKeyDown={handleKeyDown}
+                    className="h-7 w-10 text-sm text-center border border-neutral-400 rounded-sm bg-transparent focus:outline-none focus:ring-0"
+                />
             ) : (
-                <button>
-                    {/* Button content here */}
+                <button
+                    onClick={() => {
+                        setIsEditing(true);
+                        setFontSize(currentFontSize);
+                    }}
+                    className="h-7 w-10 text-sm text-center border border-neutral-400 rounded-sm hover:bg-neutral-200/80"
+                >
+                    {currentFontSize}
                 </button>
             )}
+            <button
+                onClick={increment}
+                className="h-7 w-7 shrink-0 flex items-center justify-center rounded-sm hover:bg-neutral-200/80"
+            >
+                <PlusIcon className="size-4" />
+            </button>
 
         </div>
     );
