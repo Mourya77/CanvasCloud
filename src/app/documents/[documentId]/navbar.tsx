@@ -1,6 +1,27 @@
+"use client";
+
 import Image from "next/image"
 import Link from "next/link";
-import { FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIcon, GlobeIcon, PrinterIcon, TrashIcon } from "lucide-react";
+
+import {
+    FileIcon,
+    TextIcon,
+    FileJsonIcon,
+    FilePenIcon,
+    FilePlusIcon,
+    FileTextIcon,
+    GlobeIcon,
+    PrinterIcon,
+    Redo2Icon,
+    TrashIcon,
+    Undo2Icon,
+    BoldIcon,
+    ItalicIcon,
+    UnderlineIcon,
+    StrikethroughIcon,
+    RemoveFormattingIcon,
+} from "lucide-react";
+
 import { BsFilePdf } from "react-icons/bs";
 
 import {
@@ -74,7 +95,7 @@ export const Navbar = () => {
                                         Remove
                                     </MenubarItem>
                                     <MenubarSeparator />
-                                    <MenubarItem>
+                                    <MenubarItem onClick={() => window.print()}>
                                         <PrinterIcon className="size-4 mr-2" />
                                         Print <MenubarShortcut>⌘P</MenubarShortcut>
                                     </MenubarItem>
@@ -84,16 +105,75 @@ export const Navbar = () => {
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted h-auto">
                                     Edit
                                 </MenubarTrigger>
+                                <MenubarContent>
+                                    <MenubarItem>
+                                        <Undo2Icon className="size-4 mr-2" />
+                                        Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+                                    </MenubarItem>
+                                    <MenubarItem>
+                                        <Redo2Icon className="size-4 mr-2" />
+                                        Redo <MenubarShortcut>⌘Y</MenubarShortcut>
+                                    </MenubarItem>
+                                </MenubarContent>
                             </MenubarMenu>
                             <MenubarMenu>
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted h-auto">
                                     Insert
                                 </MenubarTrigger>
+                                <MenubarContent>
+                                    <MenubarSub>
+                                        <MenubarSubTrigger>Table</MenubarSubTrigger>
+                                        <MenubarSubContent>
+                                            <MenubarItem>
+                                                1 x 1
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                2 x 2
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                3 x 3
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                4 x 4
+                                            </MenubarItem>
+                                        </MenubarSubContent>
+                                    </MenubarSub>
+                                </MenubarContent>
                             </MenubarMenu>
                             <MenubarMenu>
                                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted h-auto">
                                     Format
                                 </MenubarTrigger>
+                                <MenubarContent>
+                                    <MenubarSub>
+                                        <MenubarSubTrigger>
+                                            <TextIcon className="size-4 mr-2" />
+                                            Text
+                                        </MenubarSubTrigger>
+                                        <MenubarSubContent>
+                                            <MenubarItem>
+                                                <BoldIcon className="size-4 mr-2" />
+                                                Bold <MenubarShortcut>⌘B</MenubarShortcut>
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                <ItalicIcon className="size-4 mr-2" />
+                                                Italic <MenubarShortcut>⌘I</MenubarShortcut>
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                <UnderlineIcon className="size-4 mr-2" />
+                                                Underline <MenubarShortcut>⌘U</MenubarShortcut>
+                                            </MenubarItem>
+                                            <MenubarItem>
+                                                <StrikethroughIcon className="size-4 mr-2" />
+                                                <span>Strikethrough&nbsp;&nbsp;</span> <MenubarShortcut>⌘S</MenubarShortcut>
+                                            </MenubarItem>
+                                        </MenubarSubContent>
+                                    </MenubarSub>
+                                    <MenubarItem>
+                                        <RemoveFormattingIcon className="size-4 mr-2" />
+                                        Clear formatting
+                                    </MenubarItem>
+                                </MenubarContent>
                             </MenubarMenu>
                         </Menubar>
                     </div>
